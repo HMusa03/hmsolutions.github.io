@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMSolutions - Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 1rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .blog-content {
+            display: flex;
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 2;
+        }
+
+        .sidebar {
+            flex: 1;
+        }
+
+        .search-bar {
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .categories {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .categories ul {
+            list-style-type: none;
+        }
+
+        .categories li {
+            margin-bottom: 10px;
+        }
+
+        .categories a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .categories a:hover {
+            color: #2980b9;
+        }
+
+        .blog-post {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-post h2 {
+            margin-bottom: 10px;
+        }
+
+        .blog-post-meta {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .blog-post-excerpt {
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #2980b9;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .pagination button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background-color: #2980b9;
+        }
+
+        .pagination button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .blog-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">HMSolutions</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Sales.html">Sales</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="About_Us.html">About Us</a></li>
+                <li><a href="Contact_Page.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>HMSolutions Blog</h1>
+        
+        <div class="blog-content">
+            <section class="main-content">
+                <div id="blogPosts"></div>
+                <div class="pagination">
+                    <button id="prevPage" disabled>Previous</button>
+                    <button id="nextPage">Next</button>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search blog posts...">
+                </div>
+
+                <div class="categories">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#" data-category="all">All Posts</a></li>
+                        <li><a href="#" data-category="technology">Technology</a></li>
+                        <li><a href="#" data-category="software">Software</a></li>
+                        <li><a href="#" data-category="hardware">Hardware</a></li>
+                        <li><a href="#" data-category="cybersecurity">Cybersecurity</a></li>
+                        <li><a href="#" data-category="cloud">Cloud Computing</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const blogPosts = [
+            {
+                title: "The Future of Cloud Computing",
+                date: "May 15, 2023",
+                category: "cloud",
+                excerpt: "Explore the latest trends and innovations shaping the future of cloud computing and how they will impact businesses in the coming years.",
+                content: "Full blog post content here..."
+            },
+            {
+                title: "5 Essential Cybersecurity Practices for Small Businesses",
+                date: "May 10, 2023",
+                category: "cybersecurity",
+                excerpt: "Learn about the crucial cybersecurity measures that every small business should implement to protect their digital assets and customer data.",
+                content: "Full blog post content here..."
+            },
+            {
+                title: "The Rise of Edge Computing",
+                date: "May 5, 2023",
+                category: "technology",
+                excerpt: "Discover how edge computing is revolutionizing data processing and improving response times for various applications and industries.",
+                content: "Full blog post content here..."
+            },
+            {
+                title: "Choosing the Right IT Infrastructure for Your Business",
+                date: "April 30, 2023",
+                category: "hardware",
+                excerpt: "Get expert advice on selecting the most suitable IT infrastructure components to support your business goals and improve efficiency.",
+                content: "Full blog post content here..."
+            },
+            {
+                title: "The Impact of AI on Software Development",
+                date: "April 25, 2023",
+                category: "software",
+                excerpt: "Explore how artificial intelligence is transforming the software development process and what it means for developers and businesses alike.",
+                content: "Full blog post content here..."
+            }
+        ];
+
+        const postsPerPage = 3;
+        let currentPage = 1;
+        let filteredPosts = [...blogPosts];
+
+        function displayPosts() {
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToDisplay = filteredPosts.slice(startIndex, endIndex);
+
+            const blogPostsContainer = document.getElementById('blogPosts');
+            blogPostsContainer.innerHTML = '';
+
+            postsToDisplay.forEach(post => {
+                const postElement = document.createElement('article');
+                postElement.className = 'blog-post';
+                postElement.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <div class="blog-post-meta">${post.date} | Category: ${post.category}</div>
+                    <div class="blog-post-excerpt">${post.excerpt}</div>
+                    <a href="#" class="read-more">Read More</a>
+                `;
+                blogPostsContainer.appendChild(postElement);
+            });
+
+            updatePaginationButtons();
+        }
+
+        function updatePaginationButtons() {
+            const prevButton = document.getElementById('prevPage');
+            const nextButton = document.getElementById('nextPage');
+
+            prevButton.disabled = currentPage === 1;
+            nextButton.disabled = currentPage === Math.ceil(filteredPosts.length / postsPerPage);
+        }
+
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayPosts();
+            }
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            if (currentPage < Math.ceil(filteredPosts.length / postsPerPage)) {
+                currentPage++;
+                displayPosts();
+            }
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filteredPosts = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(searchTerm) || 
+                post.excerpt.toLowerCase().includes(searchTerm)
+            );
+            currentPage = 1;
+            displayPosts();
+        });
+
+        document.querySelectorAll('.categories a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = e.target.dataset.category;
+                filteredPosts = category === 'all' ? [...blogPosts] : blogPosts.filter(post => post.category === category);
+                currentPage = 1;
+                displayPosts();
+            });
+        });
+
+        // Initial display
+        displayPosts();
+    </script>
+</body>
+</html>
