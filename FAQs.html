@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions - FAQs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 1rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .faq-content {
+            display: flex;
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 2;
+        }
+
+        .sidebar {
+            flex: 1;
+        }
+
+        .search-bar {
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .categories {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .categories ul {
+            list-style-type: none;
+        }
+
+        .categories li {
+            margin-bottom: 10px;
+        }
+
+        .categories a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .categories a:hover {
+            color: #2980b9;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: #ecf0f1;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e6e9;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+        }
+
+        .faq-question.active::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">TechSolutions</div>
+            <ul class="nav-links">
+                <li><a href="Home_Page.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Sales.html">Sales</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="About_Us.html">About Us</a></li>
+                <li><a href="Contact_Page.html">Contact</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-content">
+            <section class="main-content">
+                <div id="faqContainer"></div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search FAQs...">
+                </div>
+
+                <div class="categories">
+                    <h2>Categories</h2>
+                    <ul>
+                        <li><a href="#" data-category="all">All FAQs</a></li>
+                        <li><a href="#" data-category="products">Products</a></li>
+                        <li><a href="#" data-category="services">Services</a></li>
+                        <li><a href="#" data-category="support">Support</a></li>
+                        <li><a href="#" data-category="pricing">Pricing</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const faqs = [
+            {
+                question: "What IT services does TechSolutions offer?",
+                answer: "TechSolutions offers a wide range of IT services including network setup and maintenance, cybersecurity solutions, cloud computing services, software development, and IT consulting.",
+                category: "services"
+            },
+            {
+                question: "How can I request a quote for your products?",
+                answer: "You can request a quote by filling out the form on our 'Contact Us' page or by calling our sales team directly at (555) 123-4567.",
+                category: "products"
+            },
+            {
+                question: "Do you offer 24/7 technical support?",
+                answer: "Yes, we offer 24/7 technical support for our enterprise-level clients. For other service tiers, support is available during business hours with options for extended support.",
+                category: "support"
+            },
+            {
+                question: "What is your pricing model for cloud services?",
+                answer: "Our cloud services are priced on a pay-as-you-go model, allowing you to scale your usage and costs based on your needs. We also offer customized pricing for large-scale implementations.",
+                category: "pricing"
+            },
+            {
+                question: "How do you ensure data security for your clients?",
+                answer: "We implement multiple layers of security including encryption, firewalls, regular security audits, and employee training. We also comply with industry standards and regulations such as GDPR and HIPAA.",
+                category: "services"
+            }
+        ];
+
+        function displayFAQs(faqsToShow) {
+            const faqContainer = document.getElementById('faqContainer');
+            faqContainer.innerHTML = '';
+
+            faqsToShow.forEach((faq, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+                faqItem.innerHTML = `
+                    <div class="faq-question" onclick="toggleAnswer(${index})">${faq.question}</div>
+                    <div class="faq-answer" id="answer${index}">${faq.answer}</div>
+                `;
+                faqContainer.appendChild(faqItem);
+            });
+        }
+
+        function toggleAnswer(index) {
+            const answer = document.getElementById(`answer${index}`);
+            const question = answer.previousElementSibling;
+            answer.classList.toggle('active');
+            question.classList.toggle('active');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredFAQs = faqs.filter(faq => 
+                faq.question.toLowerCase().includes(searchTerm) || 
+                faq.answer.toLowerCase().includes(searchTerm)
+            );
+            displayFAQs(filteredFAQs);
+        });
+
+        document.querySelectorAll('.categories a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = e.target.dataset.category;
+                const filteredFAQs = category === 'all' ? faqs : faqs.filter(faq => faq.category === category);
+                displayFAQs(filteredFAQs);
+            });
+        });
+
+        // Initial display
+        displayFAQs(faqs);
+    </script>
+</body>
+</html>
