@@ -122,12 +122,117 @@
             transform: translateY(-5px);
         }
 
-        .testimonial {
-            background-color: #f9f9f9;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-        }
+ /* Testimonials Section Background and Layout */
+.testimonials-section {
+    background: linear-gradient(135deg, #f7f7f7, #eaeaea);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.testimonials-section .container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Heading Styles */
+.testimonials-section h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Testimonial Styles */
+.testimonial {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-quote {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-author {
+    font-size: 1em;
+    color: #888;
+    font-weight: bold;
+}
+
+/* Testimonial Form Styles */
+.testimonial-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.testimonial-form h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.testimonial-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #666;
+}
+
+.testimonial-form input, .testimonial-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.testimonial-form button {
+    padding: 10px 20px;
+    background-color: #0073b1;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.testimonial-form button:hover {
+    background-color: #005fa1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonials-section h2 {
+        font-size: 2em;
+    }
+
+    .testimonial-form h3 {
+        font-size: 1.5em;
+    }
+
+    .testimonial-form input, .testimonial-form textarea {
+        font-size: 0.9em;
+    }
+
+    .testimonial-form button {
+        font-size: 1em;
+    }
+}
+
+
 
         footer {
             background-color: #2c3e50;
@@ -168,8 +273,6 @@
                 <li><a href="Sales.html">Sales</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="Terms_of_Service.html">Terms of Service</a></li>
-                <li><a href="About_Us.html">About Us</a></li>
-                <li><a href="Contact_Page.html">Contact</a></li>
                 <li><a href="Admin_Login.html">Admin</a></li>
                 <li><a href="Login.html">Login</a></li>
             </ul>
@@ -179,54 +282,78 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Empowering You with varity of IT gadgets</h1>
+                <h2>Empowering You with Tech Gadgets, Knowledge, Information and Services</h2>
                 <a href="Products.html" class="cta-button">Shop Now</a>
-            </div>
-        </section>
-
-        <section class="featured-products container">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <h3>Product 1</h3>
-                    <p>Description of Product 1</p>
-                </div>
-                <div class="product-card">
-                    <h3>Product 2</h3>
-                    <p>Description of Product 2</p>
-                </div>
-                <div class="product-card">
-                    <h3>Product 3</h3>
-                    <p>Description of Product 3</p>
-                </div>
             </div>
         </section>
 
         <section class="services container">
             <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Service 1</h3>
-                    <p>Description of Service 1</p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Sales of Computer</h3>
+                    <p>We sell all kinds of London Used Computers. like, Laptops, All-In-One Computer, Chromebook etc.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Sales of Computer Assessories</h3>
+                    <p>We sell all kinds of Computer Assessories. like, Mouse, Keyboards, Casing etc.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Samles of IT Gadgets</h3>
+                    <p>We also sell all kinds of Computer Gadgets. Like; WIFI, MIFI, Pendrive, EXternal hard drive etc.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Service 2</h3>
-                    <p>Description of Service 2</p>
+                    <h3>Online Application for Admission</h3>
+                    <p>We are involved in all levels of FCT Schools online Application for Admission. Primary, Junior Secondary or Seniour Secondary.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Service 3</h3>
-                    <p>Description of Service 3</p>
+                    <h3>Computer Repairs</h3>
+                    <p>We also Repair all kinds of Computer. i.e. Laptops, All-In-One Computer, Chromebook etc.</p>
+                </div>
+                <div class="service-card">
+                    <h3>eAffidavit</h3>
+                    <p>We do all kinds of eAffidavits. i.e. Statutory Declaration of Age, Marriage Certificate, Change of Name, Reconciliation of Name, Correction of Name, Loss of Particulars etc.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Graphic Design</h3>
+                    <p>We are also involved in all kinds of Graphic Designs. i.e. ID Card, Wedding Invitation, Jotter, Calender, Photo-Album etc.</p>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials container">
-            <h2>Customer Testimonials</h2>
-            <div class="testimonial">
-                <p>"HMSolutions has been a game-changer for our business. Their products and services are top-notch!"</p>
-                <p>- John Doe, CEO of XYZ Company</p>
+        <section class="testimonials-section">
+            <div class="container">
+                <h2>Customer Testimonials</h2>
+        
+                <!-- Existing Testimonials -->
+                <div class="testimonial">
+                    <p class="testimonial-quote">"HMSolutions has been a game-changer for our business. Their products and services are top-notch!"</p>
+                    <p class="testimonial-author">- John Doe, CEO of XYZ Company</p>
+                </div>
+        
+                <!-- Testimonial Submission Form -->
+                <div class="testimonial-form">
+                    <h3>Submit Your Testimonial</h3>
+                    <form action="your-server-endpoint" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="Number">WhatsApp Number:</label>
+                        <input type="text" id="Number" name="Number" required>
+
+                        <label for="Address">Address:</label>
+                        <input type="text" id="Address" name="Address">
+        
+                        <label for="testimonial">Your Testimonial:</label>
+                        <textarea id="testimonial" name="testimonial" rows="4" required></textarea>
+        
+                        <button type="submit">Submit Testimonial</button>
+                    </form>
+                </div>
             </div>
         </section>
+        
+        
     </main>
 
     <footer>
@@ -245,7 +372,8 @@
         <div class="container">
             <p>&copy; 2024 HMSolutions. All rights reserved.</p>
             <div class="social-icons">
-                <a href="https://web.facebook.com/unclehussainimusa" aria-label="Facebook">&#xf09a;</a>
+                <a href="https://wa.me/+2348053579779" aria-label="WhatsApp">&#xf09a;</a>
+                <a href="https://web.facebook.com/HMTelecoms" aria-label="Facebook">&#xf09a;</a>
                 <a href="https://x.com/HMusa3" aria-label="Twitter">&#xf099;</a>
                 <a href="https://www.linkedin.com/in/hussaini-musa-68614283/" aria-label="LinkedIn">&#xf0e1;</a>
             </div>
